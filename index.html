@@ -34,7 +34,7 @@
 
 <p>Please select your desired items.</p>
 
-<p><form action="mailto:ivanfengjunkai1997114@gmail.com" method="post" enctype="text/plain"><table>
+<p><form><table>
 
 <tr>
 <th><img src="http://s7d2.scene7.com/is/image/samsclub/0003400023900_A?wid=1500&hei=1500&fmt=jpg&qlt=80" style="width:304px;height:228px;"></th>
@@ -44,13 +44,14 @@
 
 <tr>
 
-        <th><input type="checkbox" name="Hercheys" value= "2.50" > $2.50</th>
-        <th><input type="checkbox" name="snacks" value="4.00"> $4.00</th>
-        <th><input type="checkbox" name="snacks" value="0.80"> $0.80</th>
-    
+    <th><input type="checkbox" name="Hercheys" value= 1.85 onchange="totalValue(this)"> $1.85</th>
+    <th><input type="checkbox" name="snacks" value= 4.95 onchange="totalValue(this)"> $4.95</th>
+    <th><input type="checkbox" name="snacks" value= 0.85 onchange="totalValue(this)"> $0.85</th>
+
 </tr>
 
-</table></p><input type="submit" value="Send"></form>
+</table></p></form>
+<p id="demo"></p>
 
 <p>Please indicate your table location in the floor map below. Click once to select and the second time to un-select. Please note that the robot can delivery to one table only.</p>
 
@@ -99,7 +100,16 @@
   event.style.background = "transparent";
   counter--;
   }
+  }
   
+  var price = 0 ;
+  function totalValue(event) {
+  var x = event.value;
+  if (event.checked == true){price = Number(price) + Number(x);}
+  else if (event.checked == false){price = Number(price) - Number(x);}
+  var temp = price*1.07;
+  temp = Math.round(temp * 100) / 100;
+  document.getElementById("demo").innerHTML = "Total Price: $ " + temp;
   }
   </script>
   
