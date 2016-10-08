@@ -7,7 +7,7 @@ svg {
 }
 
 svg:hover {
-    background: blue;
+    opacity: 1;
 }
 
 body {
