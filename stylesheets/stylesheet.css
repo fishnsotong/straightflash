@@ -1,6 +1,15 @@
 * {
   box-sizing: border-box; }
 
+svg {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+svg:hover {
+    background: blue;
+}
+
 body {
   padding: 0;
   margin: 0;
