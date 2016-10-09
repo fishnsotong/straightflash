@@ -2,18 +2,20 @@
 const int left = 11;
 const int right = 10;
 const int forward = 9;
-const int reverse = 8;
+const int backward = 6;
+char key;
 
 int standardValue = 0.6 * 255;
 // what this is going to do is spoof the signal
 void setup() {
+  Serial.begin(9600);
   pinMode(left, OUTPUT);
   pinMode(right, OUTPUT);
   pinMode(forward, OUTPUT);
-  pinMode(reverse, OUTPUT);
+  pinMode(backward, OUTPUT);
 
   //displaying the keyboard mappings
-	Serial.println("Welcome to Straight Flush!");
+	Serial.println("Welcome to Straight Flash!");
 	Serial.println("Place the vehicle on a straight surface away from you");
 	Serial.println("Enter a command!");
 	Serial.println("Keyboard (Xbox controller functionality will come later):");
@@ -58,7 +60,7 @@ void loop() {
 
 }
 
-void turningleft() {
+void turningLeft() {
   analogWrite(left, standardValue);
 }
 
@@ -71,5 +73,5 @@ void movingForward() {
 }
 
 void movingBackward() {
-  analogRead(backward, standardValue);
+  analogWrite(backward, standardValue);
 }
